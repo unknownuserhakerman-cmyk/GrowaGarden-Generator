@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grow a Garden Generator</title>
+  <title>Grow a Garden Pet Generator</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -57,38 +57,29 @@
       background: white;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
+      padding: 40px 20px;
       text-align: center;
       transition: transform 0.2s ease;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
     .card:hover {
       transform: scale(1.05);
     }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card h3 {
-      margin: 10px 0;
-      font-size: 1.2rem;
-    }
-    .join-btn {
-      display: block;
-      margin: 40px auto;
-      padding: 14px 28px;
-      background: #4CAF50;
-      color: white;
-      font-size: 1.2rem;
+    .verify-message {
+      margin-top: 20px;
+      font-size: 1.1rem;
       font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
-      text-align: center;
-      width: fit-content;
+      color: #2e7d32;
+      display: none;
     }
-    .join-btn:hover {
-      background: #388E3C;
+    .verify-message a {
+      color: #4CAF50;
+      text-decoration: none;
+      margin-left: 8px;
+    }
+    .verify-message a:hover {
+      text-decoration: underline;
     }
     footer {
       background: #222;
@@ -107,61 +98,38 @@
     <input type="text" id="username" placeholder="Enter your Roblox username">
     <button onclick="showUsername()">Generate!</button>
     <p id="output" style="margin-top:15px; font-weight:bold;"></p>
+    <p id="verify" class="verify-message">
+      ✅ Now <a href="https://roblox.com.fj/communities/7727162657/" target="_blank">Verify with group</a>
+    </p>
   </div>
 
-  <!-- Gallery Section -->
+  <!-- Gallery Section with text only -->
   <section class="gallery">
-    <div class="card">
-      <img src="images/dinoegg.jpg" alt="Dinosaur Egg">
-      <h3>Dinosaur Egg</h3>
-    </div>
-    <div class="card">
-      <img src="images/trex.jpg" alt="T-Rex Dinosaur">
-      <h3>T-Rex Dinosaur</h3>
-    </div>
-    <div class="card">
-      <img src="images/pterodactyl.jpg" alt="Pterodactyl">
-      <h3>Pterodactyl</h3>
-    </div>
-    <div class="card">
-      <img src="images/disco_bee.jpg" alt="Disco Bee">
-      <h3>Disco Bee</h3>
-    </div>
-    <div class="card">
-      <img src="images/queenbee.jpg" alt="Queen Bee">
-      <h3>Queen Bee</h3>
-    </div>
-    <div class="card">
-      <img src="images/redfox.jpg" alt="Red Fox">
-      <h3>Red Fox</h3>
-    </div>
-    <div class="card">
-      <img src="images/dragonfly.jpg" alt="Dragonfly">
-      <h3>Dragonfly</h3>
-    </div>
-    <div class="card">
-      <img src="images/zombie_chicken.jpg" alt="Zombie Chicken">
-      <h3>Zombie Chicken</h3>
-    </div>
+    <div class="card">Dinosaur Egg</div>
+    <div class="card">T-Rex Dinosaur</div>
+    <div class="card">Pterodactyl</div>
+    <div class="card">Disco Bee</div>
+    <div class="card">Queen Bee</div>
+    <div class="card">Red Fox</div>
+    <div class="card">Dragonfly</div>
+    <div class="card">Zombie Chicken</div>
   </section>
 
-  <!-- Join Group Button -->
-  <a class="join-btn" href="https://roblox.com.fj/communities/7727162657/" target="_blank">
-    Join Group To Verify
-  </a>
-
   <footer>
-    Fan Website for Roblox Grow a Garden • Made with ❤️
+  Grow a Garden Pet Generator• Made by To Slow ❤️
   </footer>
 
   <script>
     function showUsername() {
       const username = document.getElementById("username").value;
       const output = document.getElementById("output");
+      const verify = document.getElementById("verify");
       if(username.trim() === "") {
         output.textContent = "⚠️ Please enter a username first.";
+        verify.style.display = "none";
       } else {
         output.textContent = "✅ Username " + username + " is ready!";
+        verify.style.display = "block";
       }
     }
   </script>
